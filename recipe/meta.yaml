@@ -11,8 +11,9 @@ source:
 
 build:
   number: 0
-  script: python setup.py install
-  skip: True  # [win]
+  script:
+    - python setup.py build --compiler=mingw32  # [win]
+    - python setup.py install
 
 requirements:
   build:
@@ -20,6 +21,7 @@ requirements:
     - numpy x.x
     - scipy
     - gcc  # [not win]
+    - mingwpy  # [win]
   run:
     - python
     - numpy x.x
@@ -40,3 +42,4 @@ about:
 extra:
   recipe-maintainers:
     - kmuehlbauer
+    - ocefpaf
