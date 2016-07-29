@@ -10,7 +10,7 @@ source:
   sha256: 8733122ab547638fcf586e2069c231e61b411d283d42c4d0923258165f0aaa4b
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win and py35]
   script:
     - python setup.py build --compiler=mingw32  # [win]
@@ -20,13 +20,13 @@ requirements:
   build:
     - python
     - numpy x.x
-    - scipy
+    - scipy <0.18.0
     - gcc  # [not win]
     - mingwpy  # [win]
   run:
     - python
     - numpy x.x
-    - scipy
+    - scipy <0.18.0
     # libquadmath
     - libgcc  # [linux]
     - libgfortran  # [osx]
@@ -35,8 +35,8 @@ test:
   imports:
     - pytmatrix
   commands:
-    - python -c "from pytmatrix.test import test_tmatrix; test_tmatrix.run_tests()"
     - conda inspect linkages -n _test pytmatrix  # [not win]
+    - python -c "from pytmatrix.test import test_tmatrix; test_tmatrix.run_tests()"
 
 about:
   home: https://github.com/jleinonen/pytmatrix
