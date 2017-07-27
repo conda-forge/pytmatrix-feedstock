@@ -1,16 +1,15 @@
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: pytmatrix
   version: {{ version }}
 
 source:
-  fn: pytmatrix-{{ version }}.tar.gz
-  url: https://github.com/jleinonen/pytmatrix/archive/{{ version }}.tar.gz
-  sha256: 8733122ab547638fcf586e2069c231e61b411d283d42c4d0923258165f0aaa4b
+  url: https://pypi.io/packages/source/p/pytmatrix/pytmatrix-{{ version }}.zip
+  sha256: 6ed1f2e1b0a32abd4a7649373ad3c0ba3862c385a9f8da360387177e6db0c6ae
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win and py35]
   script:
     - python setup.py build --compiler=mingw32  # [win]
@@ -19,28 +18,29 @@ build:
 requirements:
   build:
     - python
-    - numpy x.x
-    - scipy
     - gcc  # [not win]
     - mingwpy  # [win]
+    - numpy 1.11.*  # [py27]
+    - scipy
   run:
     - python
-    - numpy x.x
     - scipy
-    # libquadmath
     - libgcc  # [linux]
     - libgfortran  # [osx]
+    - numpy >=1.11  # [py27]
 
 test:
   imports:
     - pytmatrix
   commands:
     - python -c "from pytmatrix.test import test_tmatrix; test_tmatrix.run_tests()"
-    #- conda inspect linkages -n _test pytmatrix  # [not win]
+    - conda inspect linkages -p $PREFIX pytmatrix  # [not win]
+    - conda inspect objects -p $PREFIX pytmatrix  # [osx]
 
 about:
   home: https://github.com/jleinonen/pytmatrix
   license: MIT
+  # license_file: LICENSE
   summary: A Python code for computing the scattering properties of homogeneous nonspherical scatterers with the T-Matrix method.
 
 extra:
