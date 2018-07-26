@@ -9,7 +9,7 @@ source:
   sha256: 6ed1f2e1b0a32abd4a7649373ad3c0ba3862c385a9f8da360387177e6db0c6ae
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and py35]
   script:
     - python setup.py build --compiler=mingw32  # [win]
@@ -17,17 +17,18 @@ build:
 
 requirements:
   build:
+    - {{ compiler('fortran') }}        # [unix]
+    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('c') }}        # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
+  host:
     - python
-    - gcc  # [not win]
-    - mingwpy  # [win]
-    - numpy 1.11.*  # [py27]
+    - numpy         # [py27]
     - scipy
   run:
     - python
     - scipy
-    - libgcc  # [linux]
-    - libgfortran  # [osx]
-    - numpy >=1.11  # [py27]
+    - {{ pin_compatible('numpy') }}   # [py27]
 
 test:
   imports:
