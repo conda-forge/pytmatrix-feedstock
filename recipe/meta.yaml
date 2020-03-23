@@ -40,9 +40,8 @@ test:
 
 about:
   home: https://github.com/jleinonen/pytmatrix
-  license: BSD-3-Clause
-  license_family: BSD
-  license_file: LICENSE.txt
+  license: MIT
+  # license_file: LICENSE.txt
   summary: A Python code for computing the scattering properties of homogeneous nonspherical scatterers with the T-Matrix method.
 
 extra:
