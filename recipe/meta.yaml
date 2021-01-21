@@ -35,8 +35,6 @@ test:
     - pytmatrix
   commands:
     - python -c "from pytmatrix.test import test_tmatrix; test_tmatrix.run_tests()"
-    - conda inspect linkages -p $PREFIX pytmatrix  # [not win]
-    - conda inspect objects -p $PREFIX pytmatrix  # [osx]
 
 about:
   home: https://github.com/jleinonen/pytmatrix
