@@ -9,7 +9,7 @@ source:
     sha256: 50a27958457ba372ed11c04782d67dbe36f81623ade1584cbc92d30e369e9522
   - url: https://raw.githubusercontent.com/jleinonen/pytmatrix/master/LICENSE
     fn: LICENSE
-    sha256: aaa
+    sha256: 51980e3d0608d57c3fbedb6edc4716ecfe9634a24c6b638ec797bb744d7467ad
 
 build:
   number: 3
