@@ -9,7 +9,7 @@ source:
   sha256: 50a27958457ba372ed11c04782d67dbe36f81623ade1584cbc92d30e369e9522
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and py35]
   script:
     - python setup.py build --compiler=mingw32  # [win]
@@ -35,8 +35,6 @@ test:
     - pytmatrix
   commands:
     - python -c "from pytmatrix.test import test_tmatrix; test_tmatrix.run_tests()"
-    - conda inspect linkages -p $PREFIX pytmatrix  # [not win]
-    - conda inspect objects -p $PREFIX pytmatrix  # [osx]
 
 about:
   home: https://github.com/jleinonen/pytmatrix
