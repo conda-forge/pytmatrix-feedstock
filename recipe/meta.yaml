@@ -10,7 +10,7 @@ source:
 
 build:
   number: 3
-  skip: true  # [win and py35]
+  skip: true  # [win]
   script:
     - python setup.py build --compiler=mingw32  # [win]
     - python setup.py install
@@ -23,12 +23,10 @@ requirements:
     - {{ compiler('m2w64_c') }}  # [win]
   host:
     - python
-    - numpy         # [py27]
     - scipy
   run:
     - python
     - scipy
-    - {{ pin_compatible('numpy') }}   # [py27]
 
 test:
   imports:
