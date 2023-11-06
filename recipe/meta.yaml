@@ -9,8 +9,8 @@ source:
   sha256: 50a27958457ba372ed11c04782d67dbe36f81623ade1584cbc92d30e369e9522
 
 build:
-  number: 2
-  skip: true  # [win and py35]
+  number: 3
+  skip: true  # [win]
   script:
     - python setup.py build --compiler=mingw32  # [win]
     - python setup.py install
@@ -23,25 +23,21 @@ requirements:
     - {{ compiler('m2w64_c') }}  # [win]
   host:
     - python
-    - numpy         # [py27]
     - scipy
   run:
     - python
     - scipy
-    - {{ pin_compatible('numpy') }}   # [py27]
 
 test:
   imports:
     - pytmatrix
   commands:
     - python -c "from pytmatrix.test import test_tmatrix; test_tmatrix.run_tests()"
-    - conda inspect linkages -p $PREFIX pytmatrix  # [not win]
-    - conda inspect objects -p $PREFIX pytmatrix  # [osx]
 
 about:
   home: https://github.com/jleinonen/pytmatrix
   license: MIT
-  # license_file: LICENSE.txt
+  license_file: LICENSE
   summary: A Python code for computing the scattering properties of homogeneous nonspherical scatterers with the T-Matrix method.
 
 extra:
