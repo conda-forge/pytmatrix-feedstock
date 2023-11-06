@@ -37,7 +37,7 @@ test:
 about:
   home: https://github.com/jleinonen/pytmatrix
   license: MIT
-  license_file: LICENSE.txt
+  license_file: LICENSE
   summary: A Python code for computing the scattering properties of homogeneous nonspherical scatterers with the T-Matrix method.
 
 extra:
