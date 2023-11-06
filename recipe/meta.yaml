@@ -9,7 +9,7 @@ source:
   sha256: 50a27958457ba372ed11c04782d67dbe36f81623ade1584cbc92d30e369e9522
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
   script:
     - python setup.py build --compiler=mingw32  # [win]
