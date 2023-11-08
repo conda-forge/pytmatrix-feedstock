@@ -23,7 +23,7 @@ requirements:
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ compiler('c') }}        # [unix]
     - {{ compiler('m2w64_c') }}  # [win]
-    - setuptools < 60.0
+    - setuptools <60.0
   host:
     - python
     - scipy
