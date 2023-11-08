@@ -24,12 +24,15 @@ requirements:
     - {{ compiler('c') }}        # [unix]
     - {{ compiler('m2w64_c') }}  # [win]
     - setuptools <60.0
+    - numpy
   host:
     - python
     - scipy
+    - numpy
   run:
     - python
     - scipy
+    - numpy
 
 test:
   imports:
