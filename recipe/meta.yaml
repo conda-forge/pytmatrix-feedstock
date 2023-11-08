@@ -14,6 +14,7 @@ build:
   number: 0
   skip: true  # [win]
   script:
+    - rm MANIFEST.in
     - python setup.py build --compiler=mingw32  # [win]
     - python setup.py install
 
