@@ -7,6 +7,8 @@ package:
 source:
   url: https://pypi.io/packages/source/p/pytmatrix/pytmatrix-{{ version }}.tar.gz
   sha256: 34a1962a89c0f123ff815a05318abd09ad247613d3a2684747119a4cd67b9e5a
+  patches:
+    - add missing pyf-file
 
 build:
   number: 0
