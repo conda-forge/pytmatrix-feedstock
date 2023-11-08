@@ -28,6 +28,7 @@ requirements:
     - numpy
   host:
     - python
+    - setuptools <60.0
     - scipy
     - numpy
   run:
