@@ -1,4 +1,4 @@
-{% set version = "0.3.2" %}
+{% set version = "0.3.3" %}
 
 package:
   name: pytmatrix
@@ -6,10 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pytmatrix/pytmatrix-{{ version }}.tar.gz
-  sha256: 50a27958457ba372ed11c04782d67dbe36f81623ade1584cbc92d30e369e9522
+  sha256: 34a1962a89c0f123ff815a05318abd09ad247613d3a2684747119a4cd67b9e5a
+  patches:
+    - add_missing_pyf_file.txt
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win]
   script:
     - python setup.py build --compiler=mingw32  # [win]
@@ -23,10 +25,13 @@ requirements:
     - {{ compiler('m2w64_c') }}  # [win]
   host:
     - python
+    - setuptools <60.0
     - scipy
+    - numpy
   run:
     - python
     - scipy
+    - numpy
 
 test:
   imports:
